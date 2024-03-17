@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.Modelos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,9 +15,16 @@ public class Oficina {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Integer id;
+    
+     @Column(name = "nombre")
     private String nombre;
+    
+    @Column(name = "direccion")
     private String direccion;
+    
+    @Column(name = "numPuntosPosibles")
     private String numPuntosPosibles;
+
 
     public Oficina(Integer id, String nombre, String direccion, String numPuntosPosibles) {
         this.id = id;

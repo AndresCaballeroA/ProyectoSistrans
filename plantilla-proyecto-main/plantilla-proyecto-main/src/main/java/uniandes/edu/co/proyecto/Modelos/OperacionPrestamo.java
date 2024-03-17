@@ -2,22 +2,29 @@ package uniandes.edu.co.proyecto.Modelos;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="OperacionPrestamo")
+@PrimaryKeyJoinColumn(name = "id")
+
 public class OperacionPrestamo extends Operacion{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Integer id;
-    private Integer numPrestamo;
-    private Integer montoPago;    
+     @Column(name = "numPrestamo")
+    private int numPrestamo;
+    
+    @Column(name = "montoPago")
+    private int montoPago;
 
     public OperacionPrestamo(Integer id, Date hora, String tipoOperacion, Integer id_op ,Integer numPrestamo, Integer montoPago) {
         super(id, hora, tipoOperacion);

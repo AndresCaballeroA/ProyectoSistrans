@@ -1,31 +1,58 @@
 package uniandes.edu.co.proyecto.Modelos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
 import jakarta.persistence.Table;
+import jakarta.persistence.InheritanceType;
 
 @Entity
 @Table(name="Usuario")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private Integer id;
+    private int id;
+    
+    @Column(name = "login")
     private String login;
+    
+    @Column(name = "contrasena")
     private String contrasena;
+    
+    @Column(name = "tipoDocumento")
     private String tipoDocumento;
+    
+    @Column(name = "numeroDocumento")
     private String numeroDocumento;
+    
+    @Column(name = "nombre")
     private String nombre;
-    private String nacionalidad; 
+    
+    @Column(name = "nacionalidad")
+    private String nacionalidad;
+    
+    @Column(name = "direccion")
     private String direccion;
+    
+    @Column(name = "email")
     private String email;
+    
+    @Column(name = "telefono")
     private String telefono;
+    
+    @Column(name = "ciudad")
     private String ciudad;
+    
+    @Column(name = "departamento")
     private String departamento;
-    private String codigoPostal; 
+    
+    @Column(name = "codigoPostal")
+    private String codigoPostal;
 
 
     public Usuario(String login, String contrasena,  String tipoDocumento, String numeroDocumento, String nombre, String nacionalidad,  String direccion, String email, String telefono, String ciudad, String departamento, String codigoPostal)
