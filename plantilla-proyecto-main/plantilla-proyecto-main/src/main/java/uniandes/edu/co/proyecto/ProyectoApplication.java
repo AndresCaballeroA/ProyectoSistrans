@@ -22,7 +22,7 @@ public class ProyectoApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... arg){
-		Collection<Usuario> usuarios = usuarioRepository.darUsuarios();
+		Collection<Usuario> usuarios = usuarioRepository.findAllUsuarios();
 		for(Usuario u: usuarios){
 			System.out.println(u);
 		}
