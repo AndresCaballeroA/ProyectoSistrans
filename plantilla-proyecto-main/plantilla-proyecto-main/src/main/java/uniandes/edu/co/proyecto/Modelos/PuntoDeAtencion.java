@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.Modelos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +16,8 @@ public class PuntoDeAtencion {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Integer id;
+    
+    @Column(name = "tipo")
     private String tipo;
 
     public PuntoDeAtencion(Integer id, String tipo){

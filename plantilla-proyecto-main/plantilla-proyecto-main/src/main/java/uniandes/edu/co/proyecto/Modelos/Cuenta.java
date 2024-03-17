@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.Modelos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,10 +14,15 @@ public class Cuenta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    
     private Integer id;
-    private Integer saldo;
+
+    @Column(name = "saldo")
+    private int saldo;
+    
+    @Column(name = "tipo")
     private String tipo;
+    
+    @Column(name = "estado")
     private String estado;
 
     public Cuenta(Integer id, Integer saldo, String tipo, String estado) {

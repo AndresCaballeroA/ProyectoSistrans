@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.Modelos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,19 +9,35 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Prestamo")
+
 public class Prestamo {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Integer id;
+
+    @Column(name = "estado")
     private String estado;
+    
+    @Column(name = "tipo")
     private String tipo;
-    private Integer monto;
-    private Float interes;
-    private Integer numCuotas;
-    private Integer numMes;
-    private Integer valorCuota;
+    
+    @Column(name = "monto")
+    private int monto;
+    
+    @Column(name = "interes")
+    private float interes;
+    
+    @Column(name = "numCuotas")
+    private int numCuotas;
+    
+    @Column(name = "numMes")
+    private int numMes;
+    
+    @Column(name = "valorCuota")
+    private int valorCuota;
+
 
     public Prestamo(Integer id, String estado, String tipo, Integer monto, Float interes, Integer numCuotas, Integer numMes, Integer valorCuota) {
         this.id = id;

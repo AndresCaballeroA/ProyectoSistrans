@@ -2,6 +2,7 @@ package uniandes.edu.co.proyecto.Modelos;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,14 +16,17 @@ public class Operacion {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Integer id;
-    private Date hora;
+    
+    @Column(name = "fechaYHora")
+    private Date fechaYHora;
+    
+    @Column(name = "tipoOperacion")
     private String tipoOperacion;
     
     public Operacion(Integer id, Date hora, String tipoOperacion){
         this.id = id;
-        this.hora = hora;
+        this.fechaYHora = hora;
         this.tipoOperacion = tipoOperacion;
     }
 
@@ -34,7 +38,7 @@ public class Operacion {
     }
 
     public Date getHora() {
-        return hora;
+        return fechaYHora;
     }
 
     public String getTipoOperacion() {
@@ -46,7 +50,7 @@ public class Operacion {
     }
 
     public void setHora(Date hora) {
-        this.hora = hora;
+        this.fechaYHora = hora;
     }
 
     public void setTipoOperacion(String tipoOperacion) {
