@@ -11,21 +11,22 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="OperacionesCuenta")
+@Table(name="OperacionCuenta")
 @PrimaryKeyJoinColumn(name = "id")
 public class OperacionCuenta extends Operacion{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "ID")
     private Integer id;
-     @Column(name = "numeroOrigen")
+
+    @Column(name = "NUMEROORIGEN")
     private int numeroOrigen;
     
-    @Column(name = "numeroDestino")
+    @Column(name = "NUMERODESTINO")
     private int numeroDestino;
     
-    @Column(name = "monto")
+    @Column(name = "MONTO")
     private int monto;
     
     public OperacionCuenta(Integer id, Date hora, String tipoOperacion, Integer id_op ,Integer numeroOrigen, Integer numeroDestino, Integer monto) {

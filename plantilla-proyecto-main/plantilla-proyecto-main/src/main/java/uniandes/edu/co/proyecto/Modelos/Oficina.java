@@ -13,16 +13,16 @@ public class Oficina {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "ID")
     private Integer id;
     
-     @Column(name = "nombre")
+     @Column(name = "NOMBRE")
     private String nombre;
     
-    @Column(name = "direccion")
+    @Column(name = "DIRECCION")
     private String direccion;
     
-    @Column(name = "numPuntosPosibles")
+    @Column(name = "NUMPUNTOSPOSIBLES")
     private String numPuntosPosibles;
 
 

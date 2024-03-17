@@ -8,34 +8,34 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Prestamo")
+@Table(name="PRESTAMO")
 
 public class Prestamo {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "estado")
+    @Column(name = "ESTADO")
     private String estado;
     
-    @Column(name = "tipo")
+    @Column(name = "TIPO")
     private String tipo;
     
-    @Column(name = "monto")
+    @Column(name = "MONTO")
     private int monto;
     
-    @Column(name = "interes")
+    @Column(name = "INTERES")
     private float interes;
     
-    @Column(name = "numCuotas")
+    @Column(name = "NUMCUOTAS")
     private int numCuotas;
     
-    @Column(name = "numMes")
+    @Column(name = "NUMMES")
     private int numMes;
     
-    @Column(name = "valorCuota")
+    @Column(name = "VALORCUOTA")
     private int valorCuota;
 
 

@@ -10,47 +10,49 @@ import jakarta.persistence.Table;
 import jakarta.persistence.InheritanceType;
 
 @Entity
-@Table(name="Usuario")
+@Table(name="USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private int id; 
-    @Column(name = "login")
+
+    @Column(name = "LOGIN")
     private String login;
     
-    @Column(name = "contrasena")
+    @Column(name = "CONTRASENA")
     private String contrasena;
     
-    @Column(name = "tipoDocumento")
+    @Column(name = "TIPODOCUMENTO")
     private String tipoDocumento;
     
-    @Column(name = "numeroDocumento")
+    @Column(name = "NUMERODOCUMENTO")
     private String numeroDocumento;
     
-    @Column(name = "nombre")
+    @Column(name = "NOMBRE")
     private String nombre;
     
-    @Column(name = "nacionalidad")
+    @Column(name = "NACIONALIDAD")
     private String nacionalidad;
     
-    @Column(name = "direccion")
+    @Column(name = "DIRECCION")
     private String direccion;
     
-    @Column(name = "email")
+    @Column(name = "EMAIL")
     private String email;
     
-    @Column(name = "telefono")
+    @Column(name = "TELEFONO")
     private String telefono;
     
-    @Column(name = "ciudad")
+    @Column(name = "CIUDAD")
     private String ciudad;
     
-    @Column(name = "departamento")
+    @Column(name = "DEPARTAMENTO")
     private String departamento;
     
-    @Column(name = "codigoPostal")
+    @Column(name = "CODIGOPOSTAL")
     private String codigoPostal;
 
 
