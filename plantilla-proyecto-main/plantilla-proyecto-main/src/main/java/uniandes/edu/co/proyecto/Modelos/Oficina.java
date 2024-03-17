@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Oficina {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer id;
     
