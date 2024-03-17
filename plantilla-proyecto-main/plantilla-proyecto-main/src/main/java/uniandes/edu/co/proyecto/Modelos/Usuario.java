@@ -15,9 +15,8 @@ import jakarta.persistence.InheritanceType;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id; 
     @Column(name = "login")
     private String login;
     
