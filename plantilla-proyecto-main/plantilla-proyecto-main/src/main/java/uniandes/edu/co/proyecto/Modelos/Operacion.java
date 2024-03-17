@@ -16,12 +16,13 @@ public class Operacion {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer id;
     
-    @Column(name = "fechaYHora")
+    @Column(name = "FECHAYHORA")
     private Date fechaYHora;
     
-    @Column(name = "tipoOperacion")
+    @Column(name = "TIPOOPERACION")
     private String tipoOperacion;
     
     public Operacion(Integer id, Date hora, String tipoOperacion){

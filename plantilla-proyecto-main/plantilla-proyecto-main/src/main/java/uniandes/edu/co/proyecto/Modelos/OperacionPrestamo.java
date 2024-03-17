@@ -18,12 +18,13 @@ public class OperacionPrestamo extends Operacion{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "ID")
     private Integer id;
-     @Column(name = "numPrestamo")
+
+     @Column(name = "NUMPRESTAMO")
     private int numPrestamo;
     
-    @Column(name = "montoPago")
+    @Column(name = "MONTOPAGO")
     private int montoPago;
 
     public OperacionPrestamo(Integer id, Date hora, String tipoOperacion, Integer id_op ,Integer numPrestamo, Integer montoPago) {

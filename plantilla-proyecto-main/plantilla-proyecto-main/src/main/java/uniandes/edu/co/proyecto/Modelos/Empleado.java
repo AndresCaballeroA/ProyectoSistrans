@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 public class Empleado extends Usuario {
 
-    @Column(name = "rolEmpleado")
+    @Column(name = "ROLEMPLEADO")
     private String rol;
 
     public Empleado(String login, String contrasena,  String tipoDocumento, String numeroDocumento, String nombre, String nacionalidad,  String direccion, String email, String telefono, String ciudad, String departamento, String codigoPostal, Integer id_empleado, String rolString){

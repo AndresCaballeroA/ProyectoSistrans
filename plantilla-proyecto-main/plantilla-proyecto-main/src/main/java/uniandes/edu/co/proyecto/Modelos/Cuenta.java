@@ -14,15 +14,16 @@ public class Cuenta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "saldo")
+    @Column(name = "SALDO")
     private int saldo;
     
-    @Column(name = "tipo")
+    @Column(name = "TIPO")
     private String tipo;
     
-    @Column(name = "estado")
+    @Column(name = "ESTADO")
     private String estado;
 
     public Cuenta(Integer id, Integer saldo, String tipo, String estado) {

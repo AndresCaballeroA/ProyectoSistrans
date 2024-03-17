@@ -14,10 +14,10 @@ public class PuntoDeAtencion {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "ID")
     private Integer id;
     
-    @Column(name = "tipo")
+    @Column(name = "TIPO")
     private String tipo;
 
     public PuntoDeAtencion(Integer id, String tipo){
