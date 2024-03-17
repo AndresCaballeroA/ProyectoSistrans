@@ -8,11 +8,15 @@ import org.springframework.data.repository.query.Param;
 import uniandes.edu.co.proyecto.Modelos.Usuario;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
-    @Query(value = "SELECT * FROM USUARIO", nativeQuery = true)
-    Collection<Usuario> findAllUsuarios();
+    // @Query(value = "SELECT * FROM USUARIO", nativeQuery = true)
+    // Collection<Usuario> findAllUsuarios();
+
+    @Query("SELECT u FROM Usuario u")
+    List<Usuario> findAllUsuarios();
 
     @Query(value = "SELECT * FROM USUARIO WHERE id = :id", nativeQuery = true)
     Usuario findUsuarioById(@Param("id") int id);

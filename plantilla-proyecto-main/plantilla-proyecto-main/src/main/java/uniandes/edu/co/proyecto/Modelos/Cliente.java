@@ -1,12 +1,13 @@
 package uniandes.edu.co.proyecto.Modelos;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Cliente")
-@PrimaryKeyJoinColumn(name = "id")
+@DiscriminatorValue("CLIENTE")
 public class Cliente extends Usuario{
     
 
