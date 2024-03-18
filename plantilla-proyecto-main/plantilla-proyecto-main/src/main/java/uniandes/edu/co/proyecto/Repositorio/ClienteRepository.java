@@ -31,4 +31,12 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
     @Transactional
     @Query(value = "DELETE FROM CLIENTE WHERE id = :id", nativeQuery = true)
     void eliminarCliente(@Param("id") Integer id);
+
+    @Query(value = "SELECT * FROM CLIENTE "
+             + "INNER JOIN CUENTA ON CLIENTE.id = CUENTA.cliente_id "
+             + "INNER JOIN OFICINA ON CUENTA.oficina_id = OFICINA.id "
+             + "INNER JOIN PRESTAMO ON CLIENTE.id = PRESTAMO.cliente_id "
+             + "WHERE CLIENTE.id = :clienteId")
+    Cliente darInformacionCliente(@Param("clienteId") String clienteId);
+    
 }

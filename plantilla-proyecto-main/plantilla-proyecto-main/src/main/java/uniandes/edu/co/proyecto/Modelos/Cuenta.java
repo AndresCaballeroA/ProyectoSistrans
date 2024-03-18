@@ -28,7 +28,7 @@ public class Cuenta {
     @Column(name = "ESTADO")
     private String estado;
 
-    @Column(name = "FechaCreacion")
+    @Column(name = "FECHACREACION")
     private Date fechaCreacion;
 
     public Cuenta(Integer id, Integer saldo, String tipo, String estado) {
@@ -46,40 +46,39 @@ public class Cuenta {
         return id;
     }
 
-    public Integer getSaldo() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public int getSaldo() {
         return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
     }
 
     public String getTipo() {
         return tipo;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public Date getfechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setSaldo(Integer saldo) {
-        this.saldo = saldo;
-    }
-
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getEstado() {
+        return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    public void setfechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public Date getFechaCreacion() {
+        return fechaCreacion;
     }
 
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
 }
