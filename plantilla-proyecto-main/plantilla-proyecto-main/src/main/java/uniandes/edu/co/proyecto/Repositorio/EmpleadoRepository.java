@@ -35,18 +35,9 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
     @Query(value = "DELETE FROM Empleado WHERE id = :id", nativeQuery = true)
     void deleteEmpleado(Integer id);
 
-    @Query(value = "SELECT * FROM CLIENTE "
-    + "INNER JOIN CUENTA ON CLIENTE.id = CUENTA.cliente_id "
-    + "INNER JOIN OFICINA ON CUENTA.oficina_id = OFICINA.id "
-    + "INNER JOIN PRESTAMO ON CLIENTE.id = PRESTAMO.cliente_id "
-    + "WHERE EMPLEADO.id = :empleadoid AND :rol = 'gerente_general'")
+    @Query(value = "SELECT * FROM CLIENTE INNER JOIN CUENTA ON CLIENTE.id = CUENTA.id INNER JOIN OFICINA ON CUENTA.id = OFICINA.id INNER JOIN PRESTAMO ON CLIENTE.id = PRESTAMO.id WHERE EMPLEADO.id = :empleadoid AND :rol = 'gerente_general'")
     Collection<Cliente> darInformacionClientesGerenteGeneral(@Param("empleadoId") String empleadoId, @Param("rol") String rol);
 
-    @Query(value = "SELECT * FROM CLIENTE "
-             + "INNER JOIN CUENTA ON CLIENTE.id = CUENTA.cliente_id "
-             + "INNER JOIN OFICINA ON CUENTA.oficina_id = OFICINA.id "
-             + "INNER JOIN PRESTAMO ON CLIENTE.id = PRESTAMO.cliente_id "
-             + "WHERE OFICINA.id = (SELECT oficina_id FROM EMPLEADO WHERE id = :empleadoId) AND :rol = 'gerente_oficina'")
+    @Query(value = "SELECT * FROM CLIENTE INNER JOIN CUENTA ON CLIENTE.id = CUENTA.id INNER JOIN OFICINA ON CUENTA.id = OFICINA.id INNER JOIN PRESTAMO ON CLIENTE.id = PRESTAMO.id WHERE OFICINA.id = (SELECT oficina_id FROM EMPLEADO WHERE id = :empleadoId) AND :rol = 'gerente_oficina'")
     Collection<Cliente> darInformacionClientesGerenteOficina(@Param("empleadoId") String empleadoId, @Param("rol") String rol);
-
 }
