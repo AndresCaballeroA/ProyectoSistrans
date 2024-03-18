@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.repository.query.Param;
 import uniandes.edu.co.proyecto.Modelos.Usuario;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
