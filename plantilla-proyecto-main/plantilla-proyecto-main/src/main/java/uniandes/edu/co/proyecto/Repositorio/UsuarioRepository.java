@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.Repositorio;
 
+import org.hibernate.mapping.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -34,4 +35,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Transactional
     @Query(value = "DELETE FROM USUARIO WHERE id = :id", nativeQuery = true)
     void deleteUsuario(@Param("id") Integer id);
+
 }

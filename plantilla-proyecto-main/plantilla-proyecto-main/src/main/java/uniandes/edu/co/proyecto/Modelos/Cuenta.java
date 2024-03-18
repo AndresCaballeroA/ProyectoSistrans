@@ -1,5 +1,7 @@
 package uniandes.edu.co.proyecto.Modelos;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,11 +28,15 @@ public class Cuenta {
     @Column(name = "ESTADO")
     private String estado;
 
+    @Column(name = "FechaCreacion")
+    private Date fechaCreacion;
+
     public Cuenta(Integer id, Integer saldo, String tipo, String estado) {
         this.id = id;
         this.saldo = saldo;
         this.tipo = tipo;
         this.estado = estado;
+        this.fechaCreacion = fechaCreacion;
     }
 
     public Cuenta()
@@ -52,6 +58,10 @@ public class Cuenta {
         return estado;
     }
 
+    public Date getfechaCreacion() {
+        return fechaCreacion;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -66,6 +76,10 @@ public class Cuenta {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public void setfechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
 }
