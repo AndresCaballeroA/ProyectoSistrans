@@ -1,12 +1,15 @@
 package uniandes.edu.co.proyecto.Controllers;
 
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import uniandes.edu.co.proyecto.Modelos.Cuenta;
 import uniandes.edu.co.proyecto.Repositorio.CuentaRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +19,18 @@ public class CuentaController {
 
     @Autowired
     private CuentaRepository cuentaRepository;
+
+    @GetMapping("/cuentas")
+    public String cuentas(Model model, String tipo, String minSaldo, String MaxSaldo, Date fechaCreacion, Date ultimoMove){
+        if ((tipo == null || tipo.equals("")) || (minSaldo == null || minSaldo.equals("")) || (MaxSaldo == null || MaxSaldo.equals("")) || (fechaCreacion == null || fechaCreacion.equals("")) || (ultimoMove == null || ultimoMove.equals(""))){
+            //model.addAttribute("cuentas", CuentaRepository.darCuentas());
+        }
+        else{
+           // model.addAttribute("cuentas", CuentaRepository.darCuentasPorCriterio(tipo, Integer.parseInt(minSaldo), Integer.parseInt(MaxSaldo), fechaCreacion, ultimoMove));
+        }
+
+        return "Cuentas";
+    }
 
     @GetMapping
     public List<Cuenta> getAllCuentas() {
