@@ -34,6 +34,6 @@ public interface CuentaRepository extends JpaRepository<Cuenta, Integer> {
     void eliminarCuenta(@Param("id") Integer id);
 
     @Query(value = "SELECT DISTINCT C.* FROM CUENTA C INNER JOIN OPERACIONCUENTA OC ON C.ID = OC.ID_CUENTA WHERE C.TIPO = :tipo AND C.fechaCreacion = :fechaCreacion AND OC.fechaYHora = :ultimoMove C.SALDO BETWEEN :minSaldo AND :maxSaldo", nativeQuery = true)
-    Collection<Cuenta> darCuentasPorCriterio(@Param("tipo") String tipo, @Param("minSaldo") int minSaldo, @Param("maxSaldo") int maxSaldo, @Param("fechaCreacion") Date fechaCreacion, @Param("ultimo_mov") Date ultimoMove);
+    Collection<Cuenta> darCuentasPorCriterio(@Param("tipo") String tipo, @Param("minSaldo") int minSaldo, @Param("maxSaldo") int maxSaldo, @Param("fechaCreacion") java.util.Date fechaCreacion, @Param("ultimo_mov") java.util.Date ultimoMove);
 }
 

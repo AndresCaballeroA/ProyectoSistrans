@@ -31,7 +31,7 @@ public class Cuenta {
     @Column(name = "FECHACREACION")
     private Date fechaCreacion;
 
-    public Cuenta(Integer id, Integer saldo, String tipo, String estado) {
+    public Cuenta(Integer id, Integer saldo, String tipo, String estado, Date fechaCreacion) {
         this.id = id;
         this.saldo = saldo;
         this.tipo = tipo;
