@@ -9,6 +9,27 @@
 <body>
     <div>
         <h1>Lista de Empleados</h1>
+
+        <div class="container w-25">
+            <div class="card border border-2 mx-auto">
+                <h5 class="card-header" role="button" id="headingOne">
+                    <a href="#" class="collapsed d-block" data-toggle="collapse" data-target="#busqueda">Busqueda Avanzada</a>
+                </h5>
+                <div id="busqueda" class"collapse">
+                    <form th:action="@{cuentas}" method="get">
+                        <label class="col-form-label">Empleado Id</label>
+                        <input class="form-control" type="text" id="tipo" name="tipo"/>
+                        <label class="col-form-label">Rol</label>
+                    <br>
+                    </form>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-secondary">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -57,7 +78,7 @@
         </table>
         <div>
             <a th:href="@{/}" class="btn btn-primary">Volver Atras</a>
-            <a th:href='@{bares/new}' class="btn btn-primary"> Añadir Empleado </a>
+            <a th:href='@{Empleado/new}' class="btn btn-primary"> Añadir Empleado </a>
         </div>
     </div>
 </body>

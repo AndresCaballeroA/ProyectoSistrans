@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuentas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+    <div>
+        <h1>Lista de Cuentas</h1>
+
+        <div class="container w-25">
+            <div class="card border border-2 mx-auto">
+                <h5 class="card-header" role="button" id="headingOne">
+                    <a href="#" class="collapsed d-block" data-toggle="collapse" data-target="#busqueda">Busqueda Avanzada</a>
+                </h5>
+                <div id="busqueda" class"collapse">
+                    <form th:action="@{cuentas}" method="get">
+                        <label class="col-form-label">Tipo:</label>
+                        <input class="form-control" type="text" id="tipo" name="tipo"/>
+                        <label class="col-form-label">Saldo Minimo</label>
+                        <input class="form-control" type="text" id="tipo" name="tipo"/>
+                        <label class="col-form-label">Saldo Maximo</label>
+                        <input class="form-control" type="text" id="tipo" name="tipo"/>
+                        <label class="col-form-label">Fecha de Creacion</label>
+                        <input class="form-control" type="text" id="tipo" name="tipo"/>
+                        <label class="col-form-label">Ultimo Movimiento</label>
+                        <input class="form-control" type="text" id="tipo" name="tipo"/>
+                    <br>
+                    </form>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-secondary">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>saldo</th>
+                    <th>tipo</th>
+                    <th>estado</th>
+                    <th>fechaCreacion</th>
+                </tr>
+            </thead>
+            <th:block th:each="Cuenta:${Cuenta}">
+                <tr>
+                    <td th:text="${Cuenta.id}"></td>
+                    <td th:text="${Cuenta.saldo}"></td>
+                    <td th:text="${Cuenta.tipo}"></td>
+                    <td th:text="${Cuenta.estado}"></td>
+                    <td th:text="${Cuenta.fechaCreacion}"></td>
+                    <td>
+                        <a th:href="@{Cuentas/{id}/edit(id=${Cuenta.id})}">
+                            Editar
+                        </a>
+                        <a th:href="@{Cuentas/{id}/delete(id=${Cuenta.id})}">
+                        onclick="return confirm('¿Estas seguro en borrar esta Cuenta?')
+                            Borrar
+                        </a>
+                    </td>
+                </tr>
+        </table>
+        <div>
+            <a th:href="@{/}" class="btn btn-primary">Volver Atras</a>
+            <a th:href='@{Cuenta/new}' class="btn btn-primary"> Añadir Cuenta </a>
+        </div>
+    </div>
+</body>
+</html>
