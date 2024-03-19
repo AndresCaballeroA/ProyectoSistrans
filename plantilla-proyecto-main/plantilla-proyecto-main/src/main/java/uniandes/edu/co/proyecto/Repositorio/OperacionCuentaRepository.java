@@ -31,8 +31,4 @@ public interface OperacionCuentaRepository extends JpaRepository<OperacionCuenta
     @Transactional
     @Query(value = "DELETE FROM OPERACION_CUENTA WHERE id = :id", nativeQuery = true)
     void deleteOperacionCuenta(@Param("id") Integer id);
-
-    
-    @Query(value = "SELECT CUENTA.saldo, OPERACIONCUENTA.*, OPERACION.fecha, OPERACION.tipo FROM OPERACION INNER JOIN OPERACIONCUENTA ON OPERACION.ID = OPERACIONCUENTA.ID_OPERACION INNER JOIN CUENTA ON OPERACIONCUENTA.ID_CUENTA = CUENTA.ID WHERE CUENTA.ID = :idCuenta AND MONTH(OPERACION.fecha) = :mes ORDER BY OPERACION.fecha ASC", nativeQuery = true)
-    Collection<OperacionCuenta> darTodasLasOperacionesPorCuenta(@Param("idCuenta") String idCuenta, @Param("mes") int mes);
 }

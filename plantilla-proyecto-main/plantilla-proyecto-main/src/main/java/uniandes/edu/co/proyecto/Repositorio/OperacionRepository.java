@@ -6,11 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.repository.query.Param;
 import uniandes.edu.co.proyecto.Modelos.Operacion;
+import uniandes.edu.co.proyecto.Modelos.OperacionCuenta;
 
 import java.util.Collection;
 
 public interface OperacionRepository extends JpaRepository<Operacion, Integer> {
-
+    
     @Query(value = "SELECT * FROM OPERACION", nativeQuery = true)
     Collection<Operacion> findAllOperaciones();
 
@@ -31,4 +32,7 @@ public interface OperacionRepository extends JpaRepository<Operacion, Integer> {
     @Transactional
     @Query(value = "DELETE FROM OPERACION WHERE id = :id", nativeQuery = true)
     void deleteOperacion(@Param("id") Integer id);
+
+    @Query(value = "SELECT CUENTA.saldo, OPERACIONCUENTA.*, OPERACION.fecha, OPERACION.tipo FROM OPERACION INNER JOIN OPERACIONCUENTA ON OPERACION.ID = OPERACIONCUENTA.ID_OPERACION INNER JOIN CUENTA ON OPERACIONCUENTA.ID_CUENTA = CUENTA.ID WHERE CUENTA.ID = :idCuenta AND MONTH(OPERACION.fecha) = :mes ORDER BY OPERACION.fecha ASC", nativeQuery = true)
+    Collection<OperacionCuenta> darTodasLasOperacionesPorCuenta(@Param("idCuenta") String idCuenta, @Param("mes") int mes);
 }
